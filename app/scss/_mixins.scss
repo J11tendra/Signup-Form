@@ -1,0 +1,25 @@
+@media (min-width: 64em){
+    // styles
+}
+
+
+// min-width:- 640px; 1024px; 1400px;
+$breakpoints-up: ("medium":"40em", "large":"64em", "xl":"87.5em");
+
+// max-width:- 639px;  1023;  1399;
+$breakpoints-down: ("small":"39.9375", "medium":"63.9375em", "large":"87.4375");
+
+
+// Creating Mixins breakpoint-up:-
+@mixin breakpoints-up($size) {
+    @media (min-width: map-get($breakpoints-up, $size)) {
+        @content;
+    }
+}
+
+// Creating Mixins breakpoint-down:-
+@mixin breakpoint-down($size) {
+    @media (max-width: map-get($breakpoints-down, $size)) {
+        @content;
+    }
+}
